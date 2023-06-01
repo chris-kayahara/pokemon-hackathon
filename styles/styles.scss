@@ -1,0 +1,294 @@
+@use '../partials/variables' as *;
+@use '../partials/nav' as *;
+@use '../partials/footer' as *;
+@use '../partials/fonts' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    // font-family: Arial, Helvetica, sans-serif;
+    font-family: "Poppins";
+    font-weight: 400;
+    color:rgb(50, 50, 50); 
+    background-color: beige;
+}
+
+h4 {
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+}
+
+.hero {
+    &__title {
+        background-color: black;
+        padding: 1rem;
+        border-radius: 15px;
+    }
+
+
+    &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 12rem;
+    // background-image: url(../assets/hero-v2.jpg);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 35px;
+    }
+
+    &__btn {
+        width: 200px;
+        height: 80px;
+        background-color: white;
+        margin-top: 20px;
+        font-size: 25px;
+        font-weight: 700;
+        color: rgb(254, 80, 80);
+        border: 4px solid rgb(254, 80, 80);
+        transition: background-color 0.5s;
+        border-radius: 15px;
+    
+          &:hover{
+            background-color: black;
+          }
+    }
+}
+
+
+.pokemon {
+    width: 52rem;
+    margin:1rem;
+
+    &__card-container {
+        padding-top: 2rem;
+        max-width: 150rem;
+        margin: 0 auto;
+        min-height: 50rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    &__name {
+        background-color: rgb(254, 80, 80);
+        text-transform: capitalize;
+        color: white;
+        width: 16rem;
+        padding: 0.5rem 0.5rem 0rem 1rem;
+        border-radius: 1rem 1rem 0 0;
+        box-shadow: 5px 5px 5px rgb(165, 165, 165);
+    }
+
+    &__type-container {
+        display: flex;
+        flex-direction: column;
+        width: 6rem;
+    }
+
+    &__type {
+        color: white;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        box-shadow: 4px 4px black;
+
+        &-normal {
+            @extend .pokemon__type;
+            background-color: grey;
+        }
+        &-fire {
+            @extend .pokemon__type;
+            background-color: orange;
+        }
+        &-water {
+            @extend .pokemon__type;
+            background-color: lightblue;
+        }
+        &-grass {
+            @extend .pokemon__type;
+            background-color: green;
+        }
+        &-electric {
+            @extend .pokemon__type;
+            background-color: yellow;
+            color: darkgrey;
+        }
+        &-ice {
+            @extend .pokemon__type;
+            background-color: aliceblue;
+            color: darkgrey;
+        }
+        &-fighting {
+            @extend .pokemon__type;
+            background-color: maroon;
+        }
+        &-poison {
+            @extend .pokemon__type;
+            background-color: purple;
+        }
+        &-ground {
+            @extend .pokemon__type;
+            background-color: brown;
+        }
+        &-flying {
+            @extend .pokemon__type;
+            background-color: azure;
+            color: darkgrey;
+        }
+        &-psychic {
+            @extend .pokemon__type;
+            background-color: pink;
+        }
+        &-bug {
+            @extend .pokemon__type;
+            background-color: yellowgreen;
+        }
+        &-rock {
+            @extend .pokemon__type;
+            background-color: goldenrod;
+        }
+        &-ghost {
+            @extend .pokemon__type;
+            background-color: rgb(93, 81, 112);
+        }
+        &-dark {
+            @extend .pokemon__type;
+            background-color: black;
+        }
+        &-dragon {
+            @extend .pokemon__type;
+            background-color: rgb(90, 15, 187);
+        }
+        &-steel {
+            @extend .pokemon__type;
+            background-color: darkgrey;
+        }
+        &-fairy {
+            @extend .pokemon__type;
+            background-color: lightpink;
+        }
+
+
+    }
+
+    &__content {
+        background-color: rgb(254, 80, 80);
+        padding: 1rem;
+        border-radius: 0 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        width: 100%;
+        box-shadow: 5px 5px 5px rgb(165, 165, 165);
+        position: relative;
+    }
+
+    &__image {
+        height: 9.5rem;
+        width: 8rem;
+        object-fit: contain;
+        background-color: white;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        flex-basis: 1;
+    }
+
+    &__decor-button1 {
+        background-color: rgb(144, 144, 251);
+        border-radius: .25rem;
+        width: 1rem;
+        height: 1rem;
+        position: absolute;
+        left: 1rem;
+        bottom: 1rem;
+    }
+
+    &__decor-button2 {
+        background-color: rgb(144, 144, 251);
+        border-radius: .25rem;
+        width: 1rem;
+        height: 1rem;
+        position: absolute;
+        left: 3.5rem;
+        bottom: 1rem;
+    }
+
+    &__decor-button3 {
+        background-color: #8ac883;
+        border-radius: 5px;
+        width: 3rem;
+        height: 1rem;
+        position: absolute;
+        left: 6rem;
+        bottom: 1rem;
+    }
+    
+    &__description-container {
+        background-color: rgb(237, 237, 237);
+        border-radius: 0.25rem;
+        font-size: .75rem;
+        padding: 0.75rem;
+        width: 20rem;
+        height: 11.65rem;
+    }
+
+    &__moves-container {
+        font-size: .75rem;
+        background-color: rgb(237, 237, 237);
+        border-radius: 0.25rem;
+        padding: 0.75rem;
+    }
+
+    &__moves-list {
+        list-style: none;
+        margin-bottom: 0.5rem;
+        width: 6.5rem;
+        text-transform: capitalize;
+    }
+
+    &__move {
+        text-align: center;
+        margin: 0.5rem 0;
+        border: 1px solid black;
+        border-radius: 7px;
+        padding: 0.1rem;
+        font-weight: bold;
+        box-shadow: 2px 2px black;
+    }
+
+    &__stats-container {
+        font-size: .75rem;
+        background-color: rgb(237, 237, 237);
+        border-radius: 0.25rem;
+        padding: 0.75rem;
+        width: 10rem;
+    }
+
+    &__stat-num {
+        font-weight: bold;
+        padding: 0;
+    }
+
+    &__stat-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &-bst {
+            border-top: 1px solid darkgray;
+            padding-top: 0.25rem;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+        }
+    }
+}
