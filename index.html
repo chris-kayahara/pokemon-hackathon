@@ -11,58 +11,23 @@
     <script src="./scripts.js" defer></script>
 </head>
 <body>
-    <header>
-        <nav class="nav">
-            <p class="nav__logo">POKEMON TEAM GENERATOR</p>
-            <ul class="nav__list">
-                <li class="nav__item"><a class="nav__link" href="./index.html">Home</a></li>
-                <li class="nav__item"><a class="nav__link" href="#card-section">Cards</a></li>
-                <li class="nav__item"><a class="nav__link" href="#footer-section">Info</a></li>
-            </ul>
-        </nav>
+    <header class="header">
+        <img class="header__logo" src="./assets/pokemon-team-generator-logo.png">
     </header>
     <main>
-        <section class="hero" id="hero-section">
-            <div class ="hero__container">
-                <div>
-                    <button class="hero__btn">NEW TEAM</button>
-                </div>
+        <section class="hero">
+            <div class="hero__text-container">
+                <p class="hero__text">The Pokemon Team Generator is a simple app that fetches a random team of 6 Pokemon from the PokeAPI and displays their description, stats and default moveset.</p>
+                <p class="hero__text">Click the button to get new inspiration for your next great Pokemon squad!</p>
             </div>
+            <button class="hero__btn">GENERATE</button>
         </section>
         <section class="pokemon__card-container" id="card-section">
 
-                
-
         </section>
     </main>
-    <footer class="footer" id="footer-section">
-        <div class="footer__head-logo">
-            <h2 class="footer__header">Contact US</h2>
-            <p class="footer__logo">PTG</p>
-        </div>
-        <div class="footer__container"> 
-            <div class="footer__about">
-                <h3 class="footer__subheader">ABOUT</h3>
-                <p>The Pokemon Team Generator (TTG) is a collectible card game based on the popular Pokemon franchise. In this game, players use their decks of cards to battle against each other, with the goal of knocking out all of their opponent's Pokemon.</p>
-            </div>   
-            <div class="footer__address">
-                <h3 class="footer__subheader">ADDRESS</h3>
-                <p>BrainStation</p>
-                <p>460 King St W, Toronto, ON </p>
-                <p>M5V 1L7</p>
-            </div>
-            <div class="footer__menu">
-                <h3 class="footer__subheader">MENU</h3>
-                <li class="footer__item"><a class="footer__link" href="./index.html">Home</a></li>
-                <li class="footer__item"><a class="footer__link" href="#card-section">Cards</a></li>
-                <li class="footer__item"><a class="footer__link" href="#footer-section"">Info</a></li>
-            </div>
-        </div>
-        <div class="footer__icons-cnt">
-            <a href="https://www.instagram.com/"><img src="./assets/Icon-instagram.svg" alt="Instagram icon" class="footer__icon"></a>
-            <a href="https://www.facebook.com/"><img src="./assets/Icon-facebook.svg" alt="Facebook icon" class="footer__icon"></a>
-            <a href="https://twitter.com/"><img src="./assets/Icon-twitter.svg" alt="Twitter icon" class="footer__icon"></a>
-        </div>
+    <footer class="footer">
+        <p class="footer__text">Chris Kayahara | Paul Kawabe | NG Kao</p>
     </footer>
 </body>
 </html>
