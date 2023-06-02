@@ -1,7 +1,6 @@
 @use '../partials/variables' as *;
-@use '../partials/nav' as *;
-@use '../partials/footer' as *;
 @use '../partials/fonts' as *;
+@use "../partials/mixins" as *;
 
 * {
     margin: 0;
@@ -22,84 +21,218 @@ h4 {
     font-weight: bold;
 }
 
-.hero {
-    &__title {
-        background-color: black;
-        padding: 1rem;
-        border-radius: 15px;
+.header {
+    background-color: $color-red;
+    padding: 1rem;
+
+
+    &__logo {
+        max-height: 6rem;
+        margin: 0 auto;
+        display: block;
     }
+}
 
-
-    &__container {
+.hero {
+    padding: 1rem;
+    max-width: 45rem;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 12rem;
-    // background-image: url(../assets/hero-v2.jpg);
-    background-position: bottom left;
-    background-repeat: no-repeat;
-    color: white;
-    font-size: 35px;
+    gap: 1rem;
+
+    @include tablet {
+        padding: 2rem 0;
+        gap: 2rem;
+    }
+
+    @include desktop {
+        padding: 3rem 0;
+    }
+
+    &__text-container{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__text{
+        text-align: center;
+
+        @include tablet {
+
+        }
     }
 
     &__btn {
-        width: 200px;
-        height: 80px;
-        background-color: white;
-        margin-top: 20px;
-        font-size: 25px;
+        height: 3rem;
+        min-width: 10rem;
+        background-color: rgb(254, 80, 80);
+        margin: 0 auto;
+        font-size: 1.5rem;
         font-weight: 700;
-        color: rgb(254, 80, 80);
-        border: 4px solid rgb(254, 80, 80);
-        transition: background-color 0.5s;
+        color: white;
+        border: none;
+        transition: 0.05s;
         border-radius: 15px;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     
+          &:active{
+            transform: translateY(3px);
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
+            background-color: rgb(192, 61, 61);
+          }
+
           &:hover{
-            background-color: black;
+            background-color: rgb(223, 70, 70);
           }
     }
 }
 
 
 .pokemon {
-    width: 52rem;
-    margin:1rem;
+    width: 45rem;
+    filter: drop-shadow(0 6px 6px rgba(0, 0, 0, 0.3));
 
     &__card-container {
-        padding-top: 2rem;
-        max-width: 150rem;
+        max-width: 94rem;
+        padding: 0 1rem 1rem 1rem;
         margin: 0 auto;
         min-height: 50rem;
         display: flex;
         justify-content: center;
+        align-items: end;
         flex-direction: row;
         flex-wrap: wrap;
+        gap: 1rem;
+
+        @include tablet {
+            gap: 2rem;
+        }
     }
     
     &__name {
         background-color: rgb(254, 80, 80);
         text-transform: capitalize;
+        position: relative;
         color: white;
-        width: 16rem;
-        padding: 0.5rem 0.5rem 0rem 1rem;
+        width: fit-content;
+        padding: 0.5rem 1rem 0rem 1rem;
         border-radius: 1rem 1rem 0 0;
-        box-shadow: 5px 5px 5px rgb(165, 165, 165);
+        z-index: 9;
+
+        // @include tablet {
+        //     width: 15rem;
+        // }
+    }
+
+    &__content {
+        background-color: rgb(254, 80, 80);
+        padding: 1rem;
+        border-radius: 0 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        position: relative;
+
+        @include tablet {
+            flex-direction: row;
+        }
+    }
+
+    &__image-type-button-container{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        width: 100%;
+
+        @include tablet {
+            width: 14rem;
+        }
+    }
+
+    &__image-button-container{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+
+        @include tablet {
+            width: 8rem;
+            gap: 0;
+        }
+    }
+
+    &__image {
+        width: 100%;
+        object-fit: contain;
+        background-color: white;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        box-shadow: rgba(51, 15, 15, 0.4) 0px 2px 4px inset, rgba(61, 20, 20, 0.3) 0px 7px 13px -3px inset, rgba(255, 82, 82, 0.723) 0px 3px 0px inset;
+        
+        @include tablet {
+            height: 9.5rem;
+        }
+    }
+
+    &__decor-button-container{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__decor-button-container-small{
+        display: flex;
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    &__decor-button1 {
+        background-color: rgb(144, 144, 251);
+        border-radius: .25rem;
+        width: 1rem;
+        height: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+    }
+
+    &__decor-button2 {
+        background-color: #8ac883;
+        border-radius: 5px;
+        width: 2rem;
+        height: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    }
+
+    &__type-dpad-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
     }
 
     &__type-container {
         display: flex;
         flex-direction: column;
-        width: 6rem;
+        width: 4rem;
+        gap: 0.5rem;
     }
 
     &__type {
         color: white;
+        font-size: .75rem;
         border-radius: 5px;
+        height: 2rem;
+        line-height: 2rem;
+        min-width: 3.75rem;
         text-align: center;
-        margin-bottom: 0.5rem;
-        padding: 0.5rem;
-        box-shadow: 4px 4px black;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
         &-normal {
             @extend .pokemon__type;
@@ -176,93 +309,70 @@ h4 {
             @extend .pokemon__type;
             background-color: lightpink;
         }
-
-
     }
 
-    &__content {
-        background-color: rgb(254, 80, 80);
-        padding: 1rem;
-        border-radius: 0 1rem 1rem 1rem;
-        display: flex;
-        flex-direction: row;
-        gap: 1rem;
-        width: 100%;
-        box-shadow: 5px 5px 5px rgb(165, 165, 165);
+    &__dpad {
         position: relative;
+        width: 3.5rem;
+        height: 3.5rem;
     }
 
-    &__image {
-        height: 9.5rem;
-        width: 8rem;
-        object-fit: contain;
-        background-color: white;
-        border-radius: 0.25rem;
-        padding: 0.5rem;
-        flex-basis: 1;
-    }
-
-    &__decor-button1 {
-        background-color: rgb(144, 144, 251);
-        border-radius: .25rem;
-        width: 1rem;
-        height: 1rem;
-        position: absolute;
-        left: 1rem;
-        bottom: 1rem;
-    }
-
-    &__decor-button2 {
-        background-color: rgb(144, 144, 251);
-        border-radius: .25rem;
-        width: 1rem;
-        height: 1rem;
-        position: absolute;
-        left: 3.5rem;
-        bottom: 1rem;
-    }
-
-    &__decor-button3 {
-        background-color: #8ac883;
+    &__dpad-left-right{
         border-radius: 5px;
-        width: 3rem;
-        height: 1rem;
         position: absolute;
-        left: 6rem;
-        bottom: 1rem;
+        background-color: grey;
+        width: 3.5rem;
+        height: 1rem;
+        transform: translateY(-50%);
+        top: 50%;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        z-index: 2;
     }
-    
+
+    &__dpad-up-down{
+        border-radius: 5px;
+        position: absolute;
+        background-color: grey;
+        width: 1rem;
+        height: 3.5rem;
+        transform: translateX(-50%);
+        left: 50%;
+        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        z-index: 1;
+    }
+
+    &__dpad-cover{
+        border-radius: 5px;
+        position: absolute;
+        background-color: grey;
+        width: 1rem;
+        height: 53px;
+        transform: translateX(-50%);
+        left: 50%;
+        z-index: 9;
+    }
+
     &__description-container {
         background-color: rgb(237, 237, 237);
         border-radius: 0.25rem;
         font-size: .75rem;
         padding: 0.75rem;
-        width: 20rem;
-        height: 11.65rem;
+        width: 100%;
+        box-shadow: rgba(51, 15, 15, 0.4) 0px 2px 4px inset, rgba(61, 20, 20, 0.3) 0px 7px 13px -3px inset, rgba(255, 82, 82, 0.723) 0px 3px 0px inset;
+
+        @include tablet {
+            padding: 0.75rem 0.75rem 0 0.75rem;
+        }
     }
 
-    &__moves-container {
+    &__description{
         font-size: .75rem;
-        background-color: rgb(237, 237, 237);
-        border-radius: 0.25rem;
-        padding: 0.75rem;
     }
 
-    &__moves-list {
-        list-style: none;
-        margin-bottom: 0.5rem;
-        width: 6.5rem;
-        text-transform: capitalize;
-    }
-
-    &__move {
-        text-align: center;
-        margin: 0.5rem 0;
-        border: 1px solid black;
-        border-radius: 7px;
-        padding: 0.1rem;
-        font-weight: bold;
-        box-shadow: 2px 2px black;
+    &__stats-moves-container {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
     }
 
     &__stats-container {
@@ -270,12 +380,30 @@ h4 {
         background-color: rgb(237, 237, 237);
         border-radius: 0.25rem;
         padding: 0.75rem;
-        width: 10rem;
+        box-shadow: rgba(51, 15, 15, 0.4) 0px 2px 4px inset, rgba(61, 20, 20, 0.3) 0px 7px 13px -3px inset, rgba(255, 82, 82, 0.723) 0px 3px 0px inset;
+        width: 50%;
+
+        @include tablet {
+            width: 8rem;
+        }
+    }
+
+    &__stat {
+        font-size: .6875rem;
+
+        @include mobile-medium {
+            font-size: .75rem;
+        }
     }
 
     &__stat-num {
         font-weight: bold;
         padding: 0;
+        font-size: .6875rem;
+
+        @include mobile-medium {
+            font-size: .75rem;
+        }
     }
 
     &__stat-row {
@@ -290,5 +418,51 @@ h4 {
             justify-content: space-between;
             margin-top: 0.5rem;
         }
+    }
+
+    &__moves-container {
+        width: 50%;
+        font-size: .75rem;
+        background-color: rgb(237, 237, 237);
+        border-radius: 0.25rem;
+        padding: 0.75rem 0.75rem 0 0.75rem;
+        box-shadow: rgba(51, 15, 15, 0.4) 0px 2px 4px inset, rgba(61, 20, 20, 0.3) 0px 7px 13px -3px inset, rgba(255, 82, 82, 0.723) 0px 3px 0px inset;
+
+        @include tablet {
+            width: 6.875rem;
+        }
+    }
+
+    &__moves-list {
+        list-style: none;
+        margin-bottom: 0.5rem;
+        text-transform: capitalize;
+    }
+
+    &__move {
+        font-size: 11px;
+        text-align: center;
+        margin: 0.5rem 0;
+        border: 1px solid black;
+        border-radius: 7px;
+        padding: 0.1rem;
+        font-weight: bold;
+        // box-shadow: 2px 2px black;
+
+    }
+}
+
+.footer {
+    background-color:$color-red;
+    color: white;
+    padding: 2rem 0;
+
+    @include tablet {
+        margin-top: 2.5rem;
+    }
+
+    &__text{
+        text-align: center;
+        font-size: 14px;
     }
 }
