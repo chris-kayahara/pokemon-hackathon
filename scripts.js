@@ -53,11 +53,7 @@ const randomPokemon = () => {
                         pokemon.name, pokemon.types, pokemon.abilities, moves, pokemon.stats, bst, description, pokemon.id, pokemon.sprites.front_default
                     )
                     generatePokemon(returnPokemon);
-                    // return returnPokemon;
                 })
-                // .then((result) => {
-                //     newTeam.push(result)
-                // })
                 .catch((error) => {
                     console.log(error)
                 });    
@@ -73,8 +69,6 @@ let heroButton = document.querySelector(".hero__btn");
 heroButton.addEventListener('click', (e) => {
     randomPokemon();
 })
-
-
 
 function generatePokemon(pokemon) {
     let pokemonCard = document.createElement("article");
@@ -94,28 +88,20 @@ function generatePokemon(pokemon) {
     pokemonContent.appendChild(pokemonImageTypeButtonContainer);
 
     // Create image and type content container
-    let pokemonImageTypeContainer = document.createElement("div");
-    pokemonImageTypeContainer.classList.add("pokemon__image-type-container");
-    pokemonImageTypeButtonContainer.appendChild(pokemonImageTypeContainer);
+    let pokemonImageButtonContainer = document.createElement("div");
+    pokemonImageButtonContainer.classList.add("pokemon__image-button-container");
+    pokemonImageTypeButtonContainer.appendChild(pokemonImageButtonContainer);
 
     // Create image and append
     let pokemonImage = document.createElement("img");
     pokemonImage.classList.add("pokemon__image");
     pokemonImage.setAttribute("src", pokemon.spriteUrl); //****** */
-    pokemonImageTypeContainer.appendChild(pokemonImage);
+    pokemonImageButtonContainer.appendChild(pokemonImage);
     
-    // //TYPES
-    let typeDiv = document.createElement('div');
-    typeDiv.classList.add('pokemon__type-container')
-    pokemonImageTypeContainer.appendChild(typeDiv);
-    for (type of pokemon.types) {
-        createTextElement('p', type.type.name, `pokemon__type-${type.type.name}`, typeDiv)
-    }
-
     // Create decorative button container
     let pokemonDecorContainer = document.createElement("div");
     pokemonDecorContainer.classList.add("pokemon__decor-button-container");
-    pokemonImageTypeButtonContainer.appendChild(pokemonDecorContainer);
+    pokemonImageButtonContainer.appendChild(pokemonDecorContainer);
 
     // Create small decorative button container
     let pokemonSmallDecorContainer = document.createElement("div");
@@ -135,14 +121,43 @@ function generatePokemon(pokemon) {
     decorButton3.classList.add("pokemon__decor-button1");
     pokemonSmallDecorContainer.appendChild(decorButton3);
 
-    let decorButton4 = document.createElement("div");
-    decorButton4.classList.add("pokemon__decor-button1");
-    pokemonSmallDecorContainer.appendChild(decorButton4);
-
     let decorButtonLong= document.createElement("div");
     decorButtonLong.classList.add("pokemon__decor-button2");
-    pokemonDecorContainer.appendChild(decorButtonLong);    
+    pokemonDecorContainer.appendChild(decorButtonLong);   
 
+    // Create Type and DPad container
+    let TypeDPadContainer = document.createElement("div");
+    TypeDPadContainer.classList.add("pokemon__type-dpad-container");
+    pokemonImageTypeButtonContainer.appendChild(TypeDPadContainer);
+
+    // //TYPES
+    let typeDiv = document.createElement('div');
+    typeDiv.classList.add('pokemon__type-container')
+    TypeDPadContainer.appendChild(typeDiv);
+    for (type of pokemon.types) {
+        createTextElement('p', type.type.name, `pokemon__type-${type.type.name}`, typeDiv)
+    }
+
+    // Create DPad
+    let dPad = document.createElement('div');
+    dPad.classList.add('pokemon__dpad');
+    TypeDPadContainer.appendChild(dPad);
+
+    // Create DPad Left Right
+    let dPadLeftRight = document.createElement('div');
+    dPadLeftRight.classList.add('pokemon__dpad-left-right');
+    dPad.appendChild(dPadLeftRight);
+
+    // Create DPad Up Down
+    let dPadUpDown = document.createElement('div');
+    dPadUpDown.classList.add('pokemon__dpad-up-down');
+    dPad.appendChild(dPadUpDown);
+
+    // Create DPad shadow cover
+    let dPadCover = document.createElement('div');
+    dPadCover.classList.add('pokemon__dpad-cover');
+    dPad.appendChild(dPadCover);
+ 
     // DESCRIPTION
     // Create description container
     let pokemonDescriptionContainer = document.createElement("div");
@@ -158,7 +173,7 @@ function generatePokemon(pokemon) {
     } else {
         createTextElement("p", "No description available", "pokemon__description", pokemonDescriptionContainer);
     }
-    pokemonImageTypeButtonContainer.appendChild(pokemonDescriptionContainer);
+    pokemonContent.appendChild(pokemonDescriptionContainer);
 
 
     // Create Stats and Move container

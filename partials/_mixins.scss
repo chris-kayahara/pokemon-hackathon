@@ -1,5 +1,12 @@
 @use 'variables' as *;
 
+// Mixin rule for medium mobile breakpoint
+@mixin mobile-medium {
+  @media screen and (min-width: $mobile-medium-breakpoint) {
+    @content;
+  }
+}
+
 // Mixin rule for tablet breakpoint
 @mixin tablet {
   @media screen and (min-width: $tablet-breakpoint) {
