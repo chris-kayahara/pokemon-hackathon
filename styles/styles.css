@@ -29,6 +29,7 @@ h4 {
 .header {
   background-color: rgb(254, 80, 80);
   padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
 }
 .header__logo {
   max-height: 6rem;
