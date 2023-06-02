@@ -1,2 +1,7 @@
-$color-red: #FB0605;
+$color-red: rgb(254, 80, 80);
 $color-grey: #B0B0B0;
+
+// Screen Breakpoints
+$mobile-medium-breakpoint: 23.4375rem; // 375px
+$tablet-breakpoint: 48rem; //768px
+$desktop-breakpoint: 80rem; //1280px
