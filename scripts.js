@@ -50,9 +50,10 @@ const randomPokemon = () => {
                         bst += pokemon.stats[i].base_stat
                     }
                     const returnPokemon = new Pokemon(
-                        pokemon.name, pokemon.types, pokemon.abilities, moves, pokemon.stats, bst, description, pokemon.id, pokemon.sprites.front_default
+                        pokemon.name, pokemon.types, pokemon.abilities, moves, pokemon.stats, bst, description, pokemon.id, pokemon.sprites.other['official-artwork'].front_default,
                     )
                     generatePokemon(returnPokemon);
+                    console.log(pokemon);
                 })
                 .catch((error) => {
                     console.log(error)
@@ -61,8 +62,7 @@ const randomPokemon = () => {
     }
 }
 
-randomPokemon();
-
+// randomPokemon();
 
 //add event listener for new team
 let heroButton = document.querySelector(".hero__btn");
