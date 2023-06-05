@@ -127,7 +127,7 @@ h4 {
   flex-direction: column;
   gap: 1rem;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgb(203, 64, 64) 0px 5px 0px;
   position: relative;
 }
 @media screen and (min-width: 48rem) {
